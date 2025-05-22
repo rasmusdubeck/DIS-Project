@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select postal codes</title>
+</head>
+<body>
+    <h2>Select which postal codes you want to select users from</h2>
+    <form method="POST">
+        <input type="text" name="postal_codes" placeholder="type your postal_code here" value="{{ postal_input }}">
+        <button type="submit">Select</button>
+    </form>
+
+    {% if users %}
+        <h3>Resultater:</h3>
+        <table border="1">
+            <tr>
+                <th>Username</th>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Skill Level</th>
+                <th>Postal_code</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user[0] }}</td>
+                <td>{{ user[1] }}</td>
+                <td>{{ user[2] }}</td>
+                <td>{{ user[3] }}</td>
+                <td>{{ user[4] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
