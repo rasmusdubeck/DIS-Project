@@ -1,35 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Select postal codes</title>
 </head>
 <body>
     <h2>Select which postal codes you want to select users from</h2>
+    
+    <a href="/signup">Opret ny bruger</a>
+
+
+    <!-- ── FORM ─────────────────────────────────────────── -->
     <form method="POST">
-        <input type="text" name="postal_codes" placeholder="type your postal_code here" value="{{ postal_input }}">
+        <!-- Postnumre -->
+        <label for="postal_codes">Postnumre (kommasepareret):</label><br>
+        <input type="text"
+       name="postal_codes"
+       placeholder="e.g. 1050,2100,2720"
+       value="{{ postal_input }}"
+       pattern="^(\d{4})(,\s*\d{4})*$"
+       title="Skriv ét eller flere postnumre, adskilt med komma – fx 1050,2100">
+<br><br>
+
+        <!-- Skill level -->
+        <label for="skill_level">Skill level:</label><br>
+        <select id="skill_level" name="skill_level">
+            <option value="all" {% if skill_input == "all" %}selected{% endif %}>All</option>
+            <option value="0"   {% if skill_input == "0"   %}selected{% endif %}>Beginner</option>
+            <option value="1"   {% if skill_input == "1"   %}selected{% endif %}>Intermediate</option>
+            <option value="2"   {% if skill_input == "2"   %}selected{% endif %}>Advanced</option>
+        </select><br><br>
+
         <button type="submit">Select</button>
     </form>
+    <!-- ─────────────────────────────────────────────────── -->
 
     {% if users %}
-        <h3>Resultater:</h3>
-        <table border="1">
-            <tr>
-                <th>Username</th>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Skill Level</th>
-                <th>Postal_code</th>
-            </tr>
-            {% for user in users %}
-            <tr>
-                <td>{{ user[0] }}</td>
-                <td>{{ user[1] }}</td>
-                <td>{{ user[2] }}</td>
-                <td>{{ user[3] }}</td>
-                <td>{{ user[4] }}</td>
-            </tr>
-            {% endfor %}
+        <h3>Results ({{ users|length }})</h3>
+        <table border="1" cellpadding="4">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Skill&nbsp;level</th>
+                    <th>Postal&nbsp;code</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                    <!-- Brug skill_map til at oversætte tal til tekst -->
+                    <td>{{ skill_map[user[3]] }}</td>
+                    <td>{{ user[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
+    {% elif request.method == "POST" %}
+        <p><em>No users matched your criteria.</em></p>
     {% endif %}
 </body>
 </html>

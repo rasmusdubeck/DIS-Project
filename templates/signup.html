@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<a href="/" style="display: inline-block; margin-top: 1em;">
+    <button type="button">Tilbage til søgning</button>
+</a>
+
+<head>
+    <title>Sign Up</title>
+</head>
+<body>
+    <h2>Opret ny bruger</h2>
+    
+    {% if message %}
+        <p><strong>{{ message }}</strong></p>
+    {% endif %}
+
+    <form method="POST" action="/signup">
+        <label>Brugernavn:</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Postnummer:</label><br>
+        <input type="text" name="postal_code" pattern="\d{4}" title="Skriv et 4-cifret postnummer" required><br><br>
+
+        <label>Skill Level:</label><br>
+        <select name="skill_level" required>
+            {% for value, label in skill_map.items() %}
+                <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Opret bruger</button>
+    </form>
+</body>
+</html>
