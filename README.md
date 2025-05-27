@@ -6,7 +6,7 @@ Made by Thomas T. Olsen, Thomas F. Lund and Rasmus D. Kristensen
 
 ## How to run the web-app: 
 
-To run and compile the project, first make sure that you have Docker installed.
+To run and compile the project, first make sure that you have Docker installed and working.
 
 Open Docker, then clone or download this repository. 
 
@@ -41,7 +41,7 @@ To clean up temporary Docker files, write
 docker compose down -v
 ```
 
-## How to interact with the web-app: 
+## How to interact with the web app: 
 
 Our app is called "Bike Buddy" and is intended for people who are into cycling and are tired of cycling alone. The user is able to find others in their own or other postal codes to match their skill level (beginner, intermediate, advanced). 
 
