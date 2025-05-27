@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <a href="/" style="display: inline-block; margin-top: 1em;">
-    <button type="button">Tilbage til søgning</button>
+    <button type="button">Return to search</button>
 </a>
 
 <head>
     <title>Sign Up</title>
 </head>
 <body>
-    <h2>Opret ny bruger</h2>
+    <h2>Create new user</h2>
     
     {% if message %}
         <p><strong>{{ message }}</strong></p>
@@ -21,8 +21,8 @@
         <label>Email:</label><br>
         <input type="email" name="email" required><br><br>
 
-        <label>Postnummer:</label><br>
-        <input type="text" name="postal_code" pattern="\d{4}" title="Skriv et 4-cifret postnummer" required><br><br>
+        <label>Postal:</label><br>
+        <input type="text" name="postal_code" pattern="\d{4}" title="Write a 4-digit postal code" required><br><br>
 
         <label>Skill Level:</label><br>
         <select name="skill_level" required>
@@ -31,7 +31,7 @@
             {% endfor %}
         </select><br><br>
 
-        <button type="submit">Opret bruger</button>
+        <button type="submit">Create user</button>
     </form>
 </body>
 </html>

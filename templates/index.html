@@ -5,21 +5,21 @@
     <title>Select postal codes</title>
 </head>
 <body>
-    <h2>Select which postal codes you want to select users from</h2>
+    <h2>Choose which postal codes you want to browse users from</h2>
     
-    <a href="/signup">Opret ny bruger</a>
+    <a href="/signup">Create new users</a>
 
 
     <!-- ── FORM ─────────────────────────────────────────── -->
     <form method="POST">
-        <!-- Postnumre -->
-        <label for="postal_codes">Postnumre (kommasepareret):</label><br>
+        <!-- Postal codes -->
+        <label for="postal_codes">Postal codes (comma separated):</label><br>
         <input type="text"
        name="postal_codes"
        placeholder="e.g. 1050,2100,2720"
        value="{{ postal_input }}"
        pattern="^(\d{4})(,\s*\d{4})*$"
-       title="Skriv ét eller flere postnumre, adskilt med komma – fx 1050,2100">
+       title="Write one or more postal codes, separated by commas – e.g. 1050,2100">
 <br><br>
 
         <!-- Skill level -->
@@ -53,7 +53,7 @@
                     <td>{{ user[0] }}</td>
                     <td>{{ user[1] }}</td>
                     <td>{{ user[2] }}</td>
-                    <!-- Brug skill_map til at oversætte tal til tekst -->
+                    <!-- Use skill_map to translate numbers to text -->
                     <td>{{ skill_map[user[3]] }}</td>
                     <td>{{ user[4] }}</td>
                 </tr>
