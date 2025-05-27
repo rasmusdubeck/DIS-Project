@@ -49,7 +49,7 @@ The web app consists of two pages, "index" and "signup".
 
 In index, you are able to browse through all users and select specific combinations of postal codes and skill levels of users. 
 
-In signup, you may sign up as a new user of the app with the credentials username, email, postal code and skill level. User id is unique (primary key) and assigned internally upon signup. 
+In signup, you may sign up as a new user of the app with the credentials username, email, postal code and skill level. User id is unique (primary key) and is assigned internally upon signup. 
 
 
 ## Project Requirements
