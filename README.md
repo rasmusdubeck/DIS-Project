@@ -49,4 +49,32 @@ The web app consists of two pages, "index" and "signup".
 
 In index, you are able to browse through all users and select specific combinations of postal codes and skill levels of users. 
 
-In signup, you may sign up as a new user of the app with credentials username, email, postal code and skill level. User id is unique and assignmed internally upon signup. 
+In signup, you may sign up as a new user of the app with the credentials username, email, postal code and skill level. User id is unique (primary key) and assigned internally upon signup. 
+
+
+## Requirements
+
+E/R diagram is available in this repository. 
+
+Regular expressions: 
+
+We used the following code to make sure that a postal code is a 4-digit number (see app.py): 
+
+```
+postal_pattern = re.compile(r"^\d{4}$")
+```
+
+SQL: 
+
+We used the following queries to extract and/or select relevant information from the database (see app.py): 
+
+```
+SELECT username, id, email, skill_level, postal_code
+FROM users
+WHERE TRUE
+```
+
+```
+INSERT INTO users (username, email, skill_level, postal_code)
+VALUES (%s, %s, %s, %s)
+```
