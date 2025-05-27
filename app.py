@@ -6,11 +6,12 @@ app = Flask(__name__)
 
 # ── DB‑konfiguration ─────────────────────────────────────────
 db_config = {
-    "host":     "localhost",
-    "dbname":   "cycling_buddy",
-    "user":     "postgres",
+    "host":     os.getenv("DB_HOST", "db"),
+    "dbname":   os.getenv("DB_NAME", "cycling_buddy"),
+    "user":     os.getenv("DB_USER", "postgres"),
     "password": os.getenv("PG_PASSWORD", "PostgresSQLthomas1")
 }
+
 
 # Mapping integer → label
 skill_map = {0: "Beginner", 1: "Intermediate", 2: "Advanced"}
@@ -105,4 +106,4 @@ def signup():
 
 # ── Kør serveren ─────────────────────────────────────────────
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0', port=5000)
