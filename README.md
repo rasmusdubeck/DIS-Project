@@ -52,7 +52,7 @@ In index, you are able to browse through all users and select specific combinati
 In signup, you may sign up as a new user of the app with the credentials username, email, postal code and skill level. User id is unique (primary key) and assigned internally upon signup. 
 
 
-## Requirements
+## Projec Requirements
 
 E/R diagram is available in this repository. 
 
