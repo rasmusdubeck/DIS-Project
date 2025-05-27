@@ -58,7 +58,7 @@ E/R diagram is available in this repository.
 
 Regular expressions: 
 
-We used the following code to make sure that a postal code is a 4-digit number (see app.py): 
+We used the following expression to make sure that a postal code is a 4-digit number (see app.py): 
 
 ```
 postal_pattern = re.compile(r"^\d{4}$")
